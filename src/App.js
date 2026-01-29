@@ -3,15 +3,18 @@ import Banner from './components/Banner/Banner';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
-
+import Footer from './components/Footer/Footer';
 import './App.css';
+
+// components/Projects/Projects.jsx (versión con API real)
+
 
 function App() {
   return (
     <div className="everest-theme">
       {/* Navbar sticky por defecto */}
       <Navbar />
-      
+
       {/* Añadir padding-top para que el banner no quede detrás del navbar */}
       <div className="content-wrapper">
         <header className="mountain-header">
@@ -19,18 +22,11 @@ function App() {
           <h1 className="title">Portfolio Everest</h1>
           <p className="subtitle">Escalando nuevas alturas en desarrollo web</p>
         </header>
-
-        <main className='main'>
-          <Banner />
-          <About />
-          <Skills />
-          <Projects />
-        </main>
-
-        <footer className="mountain-footer">
-          <p>Inspirado en la grandeza del Monte Everest • Altura: 8,848m</p>
-          <div className="base-camp">© Base Camp Dev {new Date().getFullYear()}</div>
-        </footer>
+        <Banner />
+        <About />
+        <Skills />
+        <Projects />
+        <Footer />
       </div>
     </div>
   );

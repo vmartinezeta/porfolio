@@ -1,5 +1,6 @@
 
 const Footer = () => {
+
   return (
     <footer className="footer">
       <p>© {new Date().getFullYear()} Everest Portfolio. Todos los derechos reservados.</p>

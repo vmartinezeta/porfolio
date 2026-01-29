@@ -32,12 +32,12 @@ const Banner = () => {
             <span className="info-value">+5 años</span>
           </div>
           <div className="info-item">
-            <span className="info-label">Proyectos Completados</span>
-            <span className="info-value">24</span>
+            <span className="info-label">Proyectos Completados: </span>
+            <span className="info-value">58</span>
           </div>
           <div className="info-item">
-            <span className="info-label">Altitud Actual</span>
-            <span className="info-value">Campo 4</span>
+            <span className="info-label">Altitud Actual: </span>
+            <span className="info-value">13°45'N</span>
           </div>
         </div>
       </div>

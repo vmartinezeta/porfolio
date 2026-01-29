@@ -1,67 +1,58 @@
-// components/Projects/Projects.jsx
+
 import { useState, useEffect } from 'react';
-// import './Projects.css';
+
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Datos de ejemplo (en producción conectarías con GitHub API)
+  
   useEffect(() => {
-    // Simulación de fetch a GitHub API
-    const mockProjects = [
-      {
-        id: 1,
-        name: 'Everest Dashboard',
-        description: 'Panel de control para monitoreo de métricas en tiempo real',
-        language: 'React/TypeScript',
-        stars: 42,
-        forks: 12,
-        url: 'https://github.com/tuusuario/everest-dashboard',
-        difficulty: 'Advanced',
-        altitude: 7, // de 10
-      },
-      {
-        id: 2,
-        name: 'Summit API',
-        description: 'API REST para gestión de expediciones de montaña',
-        language: 'Node.js/Express',
-        stars: 28,
-        forks: 8,
-        url: 'https://github.com/tuusuario/summit-api',
-        difficulty: 'Intermediate',
-        altitude: 5,
-      },
-      {
-        id: 3,
-        name: 'Glacier UI',
-        description: 'Biblioteca de componentes React inspirada en glaciares',
-        language: 'React/Styled Components',
-        stars: 65,
-        forks: 15,
-        url: 'https://github.com/tuusuario/glacier-ui',
-        difficulty: 'Advanced',
-        altitude: 8,
-      },
-      {
-        id: 4,
-        name: 'Base Camp CLI',
-        description: 'Herramienta de línea de comandos para inicializar proyectos',
-        language: 'JavaScript',
-        stars: 15,
-        forks: 3,
-        url: 'https://github.com/tuusuario/basecamp-cli',
-        difficulty: 'Beginner',
-        altitude: 3,
-      },
-    ];
+    const fetchGitHubRepos = async () => {
+      try {
+        const response = await fetch(
+          'https://api.github.com/users/vmartinezeta/repos?sort=updated&per_page=8'
+        );
+        const data = await response.json();
+        
+        // Mapear datos de GitHub a nuestro formato
+        const formattedProjects = data.map(repo => ({
+          id: repo.id,
+          name: repo.name,
+          description: repo.description,
+          language: repo.language || 'Varios',
+          stars: repo.stargazers_count,
+          forks: repo.forks_count,
+          url: repo.html_url,
+          difficulty: getDifficulty(repo),
+          altitude: calculateAltitude(repo)
+        }));
+        
+        setRepos(formattedProjects);
+      } catch (error) {
+        console.error('Error fetching GitHub repos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
     
-    setTimeout(() => {
-      setProjects(mockProjects);
-      setLoading(false);
-    }, 1000);
+    fetchGitHubRepos();
   }, []);
-
+  
+  const getDifficulty = (repo) => {
+    // Lógica para determinar dificultad basada en métricas
+    if (repo.size > 1000) return 'Advanced';
+    if (repo.size > 500) return 'Intermediate';
+    return 'Beginner';
+  };
+  
+  const calculateAltitude = (repo) => {
+    // Puntuación basada en estrellas, forks, etc.
+    let score = Math.min(repo.stargazers_count / 10, 5);
+    score += Math.min(repo.forks_count / 5, 3);
+    score += repo.language ? 2 : 0;
+    return Math.min(Math.floor(score), 10);
+  };
+  
   return (
     <section id="projects" className="projects-section">
       <div className="section-header">
@@ -159,7 +150,7 @@ const Projects = () => {
                         title={`${i+1}000m`}
                       >
                         {i === project.altitude - 1 && (
-                          <span className="flag-marker">🚩</span>
+                          <span className="flag-marker"></span>
                         )}
                       </div>
                     ))}

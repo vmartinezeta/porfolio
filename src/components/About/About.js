@@ -12,25 +12,25 @@ const About = () => {
       
       <div className="expedition-timeline">
         <div className="timeline-item base-camp">
-          <h3>Campo Base (2018-2019)</h3>
+          <h3>Campo Base (2008-2010)</h3>
           <p>Fundamentos sólidos: HTML, CSS, JavaScript. Primeros proyectos académicos.</p>
           <div className="altitude-marker">5,364m</div>
         </div>
         
         <div className="timeline-item camp-1">
-          <h3>Campo 1 (2020)</h3>
+          <h3>Frameworks frontend (2018-2020)</h3>
           <p>Especialización frontend: React, Vue.js. Primer trabajo como desarrollador junior.</p>
           <div className="altitude-marker">6,065m</div>
         </div>
         
         <div className="timeline-item camp-2">
-          <h3>Campo 2 (2021-2022)</h3>
+          <h3>Desarrollador web (2021-2022)</h3>
           <p>Backend y fullstack: Node.js, Express, MongoDB. Liderando proyectos pequeños.</p>
           <div className="altitude-marker">6,500m</div>
         </div>
         
         <div className="timeline-item camp-3">
-          <h3>Campo 3 (2023)</h3>
+          <h3>Arquitecturas (2023)</h3>
           <p>Arquitectura avanzada: Microservicios, AWS, DevOps. Mentoring junior developers.</p>
           <div className="altitude-marker">7,200m</div>
         </div>
