@@ -20,12 +20,10 @@
 }
 
 .section-title {
-  font-size: 2.8rem;
+  /* font-size: 2.8rem; */
+  font-size: 24px;
+  display: block;
   margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
 }
 
 .tools-icon {
@@ -93,6 +91,11 @@
 @media (min-width: 1200px) {
   .tools-grid-container {
     grid-template-columns: 2fr 1fr;
+  }
+
+  .section-title {
+      font-size: 2.8rem;
+      /* display: block; */
   }
 }
 
