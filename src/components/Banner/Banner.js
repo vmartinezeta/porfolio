@@ -1,10 +1,9 @@
 // components/Banner/Banner.jsx
-import React from 'react';
 import './Banner.css';
 
 const Banner = () => {
   return (
-    <section id="home" className="everest-banner">
+    <section id="banner" className="everest-banner">
       <div className="banner-background">
         <div className="mountain-layer mountain-layer-1"></div>
         <div className="mountain-layer mountain-layer-2"></div>

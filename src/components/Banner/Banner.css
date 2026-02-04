@@ -1,15 +1,6 @@
 /* components/Banner/Banner.css */
 
 
-.everest-banner {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(to bottom, 
-    #1a2980 0%,    /* Noche azul profunda */
-    #26d0ce 100%   /* Cielo del amanecer */
-  );
-}
 
 .mountain-layer {
   position: absolute;
@@ -53,7 +44,8 @@
   z-index: 10;
   text-align: center;
   color: white;
-  padding-top: 10%;
+  top: 130px;
+
 }
 
 .altitude {
@@ -91,13 +83,7 @@
 }
 
 /* Ajustes responsive */
-@media (max-width: 768px) {
-  .everest-banner {
-    height: calc(100vh - 70px);
-    min-height: 500px;
-  }
-  
-  .banner-content {
-    padding-top: 15%;
-  }
+.banner-background{
+  display: flex;
+  justify-content: center;
 }
